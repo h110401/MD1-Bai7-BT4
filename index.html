@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            width: 636px;
+            height: 162px;
+            box-shadow: dodgerblue 4px 4px 9px;
+       }
+    </style>
+</head>
+<body>
+
+<img id="pic1" src="cat1.png" onclick="click1()"><br>
+<img id="pic2" src="dog2.png" onclick="click2()"><br>
+<img id="pic3" src="tiger3.png" onclick="click3()"><br>
+
+<p id="result"></p>
+
+<script>
+
+    let count1 = parseInt(Math.random()*3);
+    let count2 = parseInt(Math.random()*3);
+    let count3 = parseInt(Math.random()*3);
+
+    let pic1 = document.getElementById('pic1');
+    let pic2 = document.getElementById('pic2');
+    let pic3 = document.getElementById('pic3');
+
+    check();
+
+    function click1() {
+        count1++;
+        if(count1 > 3){
+            count1 = 1;
+        }
+        if(count1 == 1){
+            pic1.src = 'cat1.png'
+        } else if (count1 == 2) {
+            pic1.src = 'dog1.png'
+        } else {
+            pic1.src = 'tiger1.png'
+            count1 = 0;
+        }
+        check();
+    }
+
+    function click2() {
+        count2++;
+        if(count2 > 3){
+            count2 = 1;
+        }
+        if(count2 == 1){
+            pic2.src = 'cat2.png'
+        } else if (count2 == 2) {
+            pic2.src = 'dog2.png'
+        } else {
+            pic2.src = 'tiger2.png'
+            count2 = 0;
+        }
+        check();
+    }
+
+    function click3() {
+        count3++;
+        if(count3 > 3){
+            count3 = 1;
+        }
+        if(count3 == 1){
+            pic3.src = 'cat3.png'
+        } else if (count3 == 2) {
+            pic3.src = 'dog3.png'
+        } else {
+            pic3.src = 'tiger3.png'
+            count3 = 0;
+        }
+        check();
+    }
+
+    function check() {
+        if (count1 == count2 && count1 == count3){
+            pic1.style.boxShadow = 'red 4px 4px 9px';
+            pic2.style.boxShadow = 'red 4px 4px 9px';
+            pic3.style.boxShadow = 'red 4px 4px 9px';
+        } else {
+            pic1.style.boxShadow = 'dodgerblue 4px 4px 9px';
+            pic2.style.boxShadow = 'dodgerblue 4px 4px 9px';
+            pic3.style.boxShadow = 'dodgerblue 4px 4px 9px';
+        }
+    }
+
+    window.onload = click1(), click2(), click3();
+
+</script>
+
+</body>
+</html>
